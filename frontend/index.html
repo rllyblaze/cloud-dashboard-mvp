@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Global Cloud Health Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 40px;
+    }
+    h1 { margin-bottom: 20px; }
+    .status {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .OK { color: #22c55e; }
+    .WARNING { color: #facc15; }
+    .CRITICAL { color: #ef4444; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #020617;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .label {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    .value {
+      font-size: 28px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌍 Global Cloud Health Dashboard</h1>
+<div id="status" class="status">Loading…</div>
+
+<div class="grid">
+  <div class="card"><div class="label">Health Score</div><div id="healthScore" class="value">–</div></div>
+  <div class="card"><div class="label">Avg CPU (%)</div><div id="avgCpu" class="value">–</div></div>
+  <div class="card"><div class="label">Max CPU (%)</div><div id="maxCpu" class="value">–</div></div>
+  <div class="card"><div class="label">Avg Memory (%)</div><div id="avgMemory" class="value">–</div></div>
+  <div class="card"><div class="label">Avg Network</div><div id="avgNetwork" class="value">–</div></div>
+  <div class="card"><div class="label">Healthy Services (%)</div><div id="healthyPct" class="value">–</div></div>
+</div>
+
+<script>
+const DATA_URL =
+  'https://cloud-dashboard-project.s3.amazonaws.com/processed_data/global_health/latest.json';
+
+fetch(DATA_URL)
+  .then(res => res.json())
+  .then(data => {
+    const statusEl = document.getElementById('status');
+    statusEl.textContent = `Status: ${data.status}`;
+    statusEl.classList.add(data.status);
+
+    document.getElementById('healthScore').textContent = data.health_score;
+    document.getElementById('avgCpu').textContent = data.avg_cpu.toFixed(2);
+    document.getElementById('maxCpu').textContent = data.max_cpu.toFixed(2);
+    document.getElementById('avgMemory').textContent = data.avg_memory.toFixed(2);
+    document.getElementById('avgNetwork').textContent = data.avg_network_traffic.toFixed(2);
+    document.getElementById('healthyPct').textContent =
+      data.services_healthy_percent.toFixed(1);
+  })
+  .catch(err => {
+    document.getElementById('status').textContent = 'Failed to load data';
+    console.error(err);
+  });
+</script>
+
+</body>
+</html>
