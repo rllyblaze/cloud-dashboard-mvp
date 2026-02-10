@@ -1,3 +1,5 @@
+# Global Cloud Health Dashboard (Serverless MVP)
+
 ## Live Demo
 
 🔗 **Dashboard URL:**  
@@ -5,9 +7,6 @@ http://cloud-dashboard-frontend.s3-website-us-east-1.amazonaws.com
 
 The dashboard is hosted as a static website on Amazon S3 and displays the latest
 available cloud health snapshot computed by Athena.
-
-
-# Global Cloud Health Dashboard (Serverless MVP)
 
 This project is a serverless cloud observability MVP that aggregates large-scale cloud
 telemetry data into a single, easy-to-understand health snapshot.  
@@ -134,6 +133,7 @@ displays the historical time window used for analysis.
 - Add additional time windows (7-day, 30-day, 1-year)
 - Introduce CloudFront for frontend caching
 - Visualize trends using charts instead of single snapshots
+
 
 
 
