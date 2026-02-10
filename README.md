@@ -12,6 +12,7 @@ and is not intended to represent live production metrics.
 The dashboard is hosted as a static website on Amazon S3 and displays the latest
 cloud health snapshot computed by Amazon Athena.
 
+---
 
 This project is a serverless cloud observability MVP that aggregates large-scale cloud
 telemetry data into a single, easy-to-understand health snapshot.  
@@ -138,6 +139,7 @@ displays the historical time window used for analysis.
 - Add additional time windows (7-day, 30-day, 1-year)
 - Introduce CloudFront for frontend caching
 - Visualize trends using charts instead of single snapshots
+
 
 
 
