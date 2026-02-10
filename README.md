@@ -1,5 +1,9 @@
 ## Screenshots
 
+
+## Architecture
+![Architecture Diagram](screenshots/architecture.png)
+
 ### Global Cloud Health Dashboard
 ![Dashboard](screenshots/dashboard.png)
 
@@ -11,5 +15,6 @@
 
 ### S3 Architecture – Frontend Hosting
 ![S3 Frontend Architecture](screenshots/s3-frontend-architecture.png)
+
 
 
