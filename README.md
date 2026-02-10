@@ -4,9 +4,13 @@
 
 🔗 **Dashboard URL:**  
 http://cloud-dashboard-frontend.s3-website-us-east-1.amazonaws.com
+Note: The dashboard displays historical data over the latest available time window
+and is not intended to represent live production metrics.
+
 
 The dashboard is hosted as a static website on Amazon S3 and displays the latest
-available cloud health snapshot computed by Athena.
+cloud health snapshot computed by Amazon Athena.
+
 
 This project is a serverless cloud observability MVP that aggregates large-scale cloud
 telemetry data into a single, easy-to-understand health snapshot.  
@@ -34,8 +38,8 @@ time window and exposing the result as a stable, frontend-ready artifact.
 ## Architecture Overview
 
 Raw metrics are stored in Amazon S3 and queried directly using Amazon Athena.
-Athena computes health KPIs and anomaly logic and unloads a summarized result as JSON
-back into S3. A static frontend hosted on S3 fetches this JSON and renders a global
+Athena computes health KPIs and anomaly logic and unloads a summarized JSON
+health snapshot back into S3. A static frontend hosted on S3 fetches this JSON and renders a global
 health dashboard in the browser.
 
 The entire system is fully serverless and requires no always-on compute.
@@ -133,6 +137,7 @@ displays the historical time window used for analysis.
 - Add additional time windows (7-day, 30-day, 1-year)
 - Introduce CloudFront for frontend caching
 - Visualize trends using charts instead of single snapshots
+
 
 
 
