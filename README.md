@@ -32,7 +32,9 @@ health dashboard in the browser.
 
 The entire system is fully serverless and requires no always-on compute.
 
-![Architecture Diagram](screenshots/Architecture.png)
+
+![Architecture Diagram](screenshots/architecture.png)
+
 
 ---
 
@@ -123,5 +125,6 @@ displays the historical time window used for analysis.
 - Add additional time windows (7-day, 30-day, 1-year)
 - Introduce CloudFront for frontend caching
 - Visualize trends using charts instead of single snapshots
+
 
 
