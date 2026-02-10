@@ -54,6 +54,9 @@
   <div class="card"><div class="label">Healthy Services (%)</div><div id="healthyPct" class="value">–</div></div>
 </div>
 
+<div id="timeWindow" style="margin-bottom: 30px; opacity: 0.8;"></div>
+
+
 <script>
 const DATA_URL =
   'https://cloud-dashboard-project.s3.amazonaws.com/processed_data/global_health/latest.json';
@@ -72,6 +75,10 @@ fetch(DATA_URL)
     document.getElementById('avgNetwork').textContent = data.avg_network_traffic.toFixed(2);
     document.getElementById('healthyPct').textContent =
       data.services_healthy_percent.toFixed(1);
+
+    document.getElementById('timeWindow').textContent =
+  `Time Window: ${data.window_start} → ${data.window_end} (last 1 hour)`;
+
   })
   .catch(err => {
     document.getElementById('status').textContent = 'Failed to load data';
