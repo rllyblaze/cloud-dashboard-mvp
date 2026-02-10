@@ -123,3 +123,4 @@ displays the historical time window used for analysis.
 - Add additional time windows (7-day, 30-day, 1-year)
 - Introduce CloudFront for frontend caching
 - Visualize trends using charts instead of single snapshots
+
